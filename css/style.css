@@ -64,6 +64,7 @@ h3{
 }
 .header__logo{
     margin: 3rem 0;
+    border-radius: 1rem;
 }
 /*Footer*/
 .footer{
