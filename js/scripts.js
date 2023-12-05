@@ -11,7 +11,7 @@ remove.addEventListener("click", function() {
 
 
  const showupElements = document.querySelectorAll(".producto");
- const camisaContenido = document.querySelector(".camisa__contenido");
+ const camisaContenido = document.querySelector(".suits__contenido");
  const remove = document.querySelector(".remove");
  
  showupElements.forEach(element => {
