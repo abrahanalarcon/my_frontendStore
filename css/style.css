@@ -124,6 +124,10 @@ h3{
 
 
 }
+.producto__imagen:hover{
+    cursor: pointer;
+
+}
 .producto__nombre{
     font-size: 4rem;
 
@@ -232,15 +236,22 @@ h3{
     justify-content: center;
     flex-direction: column;
     position: fixed;
-    width: 50%;
-    top: 50vh;
+    max-width: 90%; /* Cambiado de width a max-width */
+    top: 50%; /* Centrar verticalmente */
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color:#5c7382;
+    background-color: #5c7382;
     width: 500px;
     border-radius: 3rem;
     z-index: 2;
 }
+/* Agregado para hacerlo responsive en dispositivos móviles */
+@media screen and (max-width: 600px) {
+    .suits__contenido.active {
+        width: 90%; /* Ajustar el ancho en pantallas pequeñas */
+    }
+}
+
 .remove {
     position: absolute;
     top: 20px;
@@ -261,10 +272,7 @@ h3{
     background-color: rgba(233, 16, 16, 0.942);
 }
 
-.remove:hover {
-    cursor: pointer;
-    background-color: rgba(233, 16, 16, 0.942);
-}
+
 
 
 @media (min-width:768px) {
@@ -295,7 +303,10 @@ h3{
     /* Añade la siguiente propiedad para que los elementos estén uno debajo del otro */
     margin-bottom: 1rem;
 }
-
+.formulario__campo::placeholder {
+    color: black; /* Color del placeholder */
+    opacity: 1; /* Ajusta la opacidad según sea necesario */
+}
 .formulario__submit {
     background-color: var(--secundario);
     border: none;
@@ -311,3 +322,52 @@ h3{
     cursor: pointer;
     background-color: var(--secundarioOscuro);
 }
+
+.loader-wrapper {
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--primario);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color var(--secundario);
+    font-size: 24px;
+    opacity: 0;
+    animation: fadeIn 0s ease-out forwards;
+  }
+  
+  .loader-wrapper h1 {
+    margin: 0;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: slideInText 1s forwards 1s;
+  }
+  
+  .loader-wrapper h1 span {
+    font-size: 50px;
+    display: inline-block;
+    transform: scale(0);
+    animation: scaleIn 0.5s forwards 2s;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+  }
+  
+  @keyframes slideInText {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+  }
+  
+  

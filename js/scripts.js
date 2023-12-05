@@ -23,5 +23,12 @@ remove.addEventListener("click", function() {
  remove.addEventListener("click", function() {
      camisaContenido.classList.remove("active");
  });
+
+ window.onload = function() {
+    var loaderWrapper = document.querySelector('.loader-wrapper');
+    setTimeout(function() {
+      loaderWrapper.style.display = 'none'; // oculta el loader después de 5 segundos
+    }, 3000);
+  };
  
  
