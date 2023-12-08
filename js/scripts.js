@@ -1,34 +1,88 @@
- /* const showup = document.querySelector(".producto");
 
-const div = document.querySelector(".camisa_contenido");
-const remove = document.querySelector(".remove");
-showup.onclick = function() {
-   div.classList.toggle("active");
- };
-remove.addEventListener("click", function() {
-    showup.click();
- }) */
+// carrito.js
+document.addEventListener('DOMContentLoaded', () => {
+    const carrito = document.querySelector('#carrito');
+    const contenedorCarrito = document.querySelector('#lista-carrito tbody');
+    const vaciarCarritoBtn = document.querySelector('#vaciar-carrito');
+    const listaCursos = document.querySelector('#lista-cursos');
+    let articulosCarrito = [];
 
+    listaCursos.addEventListener('click', agregarCurso);
+    carrito.addEventListener('click', eliminarCurso);
 
- const showupElements = document.querySelectorAll(".producto");
- const camisaContenido = document.querySelector(".suits__contenido");
- const remove = document.querySelector(".remove");
- 
- showupElements.forEach(element => {
-     element.addEventListener("click", function() {
-         camisaContenido.classList.toggle("active");
-     });
- });
- 
- remove.addEventListener("click", function() {
-     camisaContenido.classList.remove("active");
- });
+    vaciarCarritoBtn.addEventListener('click', () => {
+        articulosCarrito = [];
+        limpiarHTML();
+    });
 
- window.onload = function() {
-    var loaderWrapper = document.querySelector('.loader-wrapper');
-    setTimeout(function() {
-      loaderWrapper.style.display = 'none'; // oculta el loader después de 5 segundos
-    }, 3000);
-  };
- 
- 
+    function agregarCurso(e) {
+        e.preventDefault();
+
+        if (e.target.classList.contains('agregar-carrito')) {
+            const cursoSeleccionado = e.target.parentElement.parentElement;
+            leerDatosCurso(cursoSeleccionado);
+        }
+    }
+
+    function eliminarCurso(e) {
+        if (e.target.classList.contains('borrar-curso')) {
+            const cursoId = e.target.getAttribute('data-id');
+            articulosCarrito = articulosCarrito.filter(curso => curso.id !== cursoId);
+            carritoHTML();
+        }
+    }
+   
+
+    function leerDatosCurso(curso) {
+        const infoCurso = {
+            imagen: curso.querySelector('.producto__imagen').src,
+            titulo: curso.querySelector('.producto__nombre').textContent,
+            precio: curso.querySelector('.producto__precio').textContent,
+            id: curso.querySelector('.agregar-carrito').getAttribute('data-id'),
+            cantidad: 1
+        };
+
+        const existe = articulosCarrito.some(curso => curso.id === infoCurso.id);
+        if (existe) {
+            const cursos = articulosCarrito.map(curso => {
+                if (curso.id === infoCurso.id) {
+                    curso.cantidad++;
+                    return curso;
+                } else {
+                    return curso;
+                }
+            });
+            articulosCarrito = [...cursos];
+        } else {
+            articulosCarrito = [...articulosCarrito, infoCurso];
+        }
+
+        carritoHTML();
+    }
+
+    function carritoHTML() {
+        limpiarHTML();
+
+        articulosCarrito.forEach(curso => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                 <td>  
+                      <img src="${curso.imagen}" width=100>
+                 </td>
+                 <td>${curso.titulo}</td>
+                 <td>${curso.precio}</td>
+                 <td>${curso.cantidad} </td>
+                 <td>
+                      <a href="#" class="borrar-curso" data-id="${curso.id}">X</a>
+                 </td>
+            `;
+            contenedorCarrito.appendChild(row);
+        });
+    }
+
+    function limpiarHTML() {
+        while (contenedorCarrito.firstChild) {
+            contenedorCarrito.removeChild(contenedorCarrito.firstChild);
+        }
+    }
+});

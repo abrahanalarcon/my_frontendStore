@@ -8,6 +8,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@800&family=Krub:wght@400;700&family=Poppins:wght@800&family=Staatliches&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/normalize.css">
+     <link rel="stylesheet" href="css/skeleton.css"> 
+     <link rel="stylesheet" href="css/custom.css">
     <title>Front-end Store</title>
    
 </head>
@@ -18,46 +21,57 @@
             <a href="index.html">
                 <img  class="header__logo" src="img/img/logo6.jpg" alt="Logotipo"> <!--Esto es para cuando se le de click al logo, te mande a la pagina principal-->
             </a>
+            <div class="container">
+                <div class="">
+                    <div class="two columns u-pull-right">
+                        <ul>
+                            <li class="submenu">
+                                    <img src="img/img/cart.png" id="img-carrito" class="img-carrito">
+                                    <div id="carrito">
+                                            
+                                            <table id="lista-carrito" class="u-full-width">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Imagen</th>
+                                                        <th>Nombre</th>
+                                                        <th>Precio</th>
+                                                        <th>Cantidad</th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+        
+                                            <a href="#" id="vaciar-carrito" class="button u-full-width">Vaciar Carrito</a>
+                                    </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div> 
+            </div> 
         </header>
         <nav class="navegacion">
             <a class="navegacion__enlace navegacion__enlace--activo" href="index.html">Store</a>
             <a class="navegacion__enlace" href="nosotros.html">Us</a> 
+            <a class="navegacion__enlace" href="productos.html">Products</a> 
+      
         </nav>
 
 
-        <div class="loader-wrapper">
-            <h1>Our Products</h1>
-        
-        </div>
 
-
-         <div class="suits__contenido">
-             <button class="remove">X</button>
-             <h1>Cart</h1>
-               <form class="formulario">
-                <select class="formulario__campo">
-                     <option disabled selected>--Select size--</option>
-                     <option value="">Small</option>
-                     <option value="">Mediun</option>
-                     <option value="">Large</option>
-                </select>
-                    <input type="number" class="formulario__campo" placeholder="Amount" min="1">
-                    <input type="submit" class="formulario__submit" value="Add to Cart">
-             </form>
-         </div>
-            
         
 
 
         <main class="contenedor">
             <h1>Our Products</h1>
-            <div class="grid">
+            <div id="lista-cursos" class="grid">
                 <div class="producto">
         
-                        <img class="producto__imagen" src="img/img/16.jpg" alt="imagen_camisa">
+                        <img class="producto__imagen imagen-curso" src="img/img/16.jpg" alt="imagen_camisa">
                         <div class="producto__informacion">
                             <p class="producto__nombre">Iron Man</p>
                             <p class="producto__precio">$25</p>
+                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="1">Agregar Al Carrito</a>
                         </div>
                     
                 </div><!--fin de la clase .producto-->
@@ -68,6 +82,7 @@
                         <div class="producto__informacion">
                             <p class="producto__nombre">Elon Musk</p>
                             <p class="producto__precio">$25</p>
+                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="2">Agregar Al Carrito</a>
                         </div>
                     
                 </div>
@@ -78,6 +93,7 @@
                         <div class="producto__informacion">
                             <p class="producto__nombre">John Wick</p>
                             <p class="producto__precio">$25</p>
+                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="3">Agregar Al Carrito</a>
                         </div>
                     
                 </div>
@@ -88,6 +104,7 @@
                         <div class="producto__informacion">
                             <p class="producto__nombre">Spider Man</p>
                             <p class="producto__precio">$25</p>
+                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="4">Agregar Al Carrito</a>
                         </div>
                     
                 </div>
@@ -98,6 +115,7 @@
                         <div class="producto__informacion">
                             <p class="producto__nombre">Starts Wars</p>
                             <p class="producto__precio">$25</p>
+                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="5">Agregar Al Carrito</a>
                         </div>
                     
                 </div>
@@ -109,6 +127,7 @@
                         <div class="producto__informacion">
                             <p class="producto__nombre">Sass</p>
                             <p class="producto__precio">$25</p>
+                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="6">Agregar Al Carrito</a>
                         </div>
                     
                 </div>
@@ -120,6 +139,7 @@
                         <div class="producto__informacion">
                             <p class="producto__nombre">Html</p>
                             <p class="producto__precio">$25</p>
+                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="7">Agregar Al Carrito</a>
                         </div>
                     
                 </div>
@@ -131,6 +151,7 @@
                         <div class="producto__informacion">
                             <p class="producto__nombre">GitHub</p>
                             <p class="producto__precio">$25</p>
+                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="8">Agregar Al Carrito</a>
                         </div>
                     
                 </div>
@@ -141,6 +162,7 @@
                         <div class="producto__informacion">
                             <p class="producto__nombre">Bulma</p>
                             <p class="producto__precio">$25</p>
+                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="9">Agregar Al Carrito</a>
                         </div>
                     
                 </div>
@@ -151,6 +173,7 @@
                         <div class="producto__informacion">
                             <p class="producto__nombre">Typescript</p>
                             <p class="producto__precio">$25</p>
+                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="10">Agregar Al Carrito</a>
                         </div>
                     
                 </div>
@@ -162,6 +185,7 @@
                         <div class="producto__informacion">
                             <p class="producto__nombre">Drupal</p>
                             <p class="producto__precio">$25</p>
+                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="11">Agregar Al Carrito</a>
                         </div>
                     
                 </div>
@@ -172,6 +196,7 @@
                         <div class="producto__informacion">
                             <p class="producto__nombre">JavaScript</p>
                             <p class="producto__precio">$25</p>
+                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="12">Agregar Al Carrito</a>
                         </div>
                 </div>
             
@@ -180,6 +205,7 @@
                         <div class="producto__informacion">
                             <p class="producto__nombre">GraphQL</p>
                             <p class="producto__precio">$25</p>
+                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="13">Agregar Al Carrito</a>
                         </div>
                 </div>
             
@@ -189,13 +215,14 @@
                         <div class="producto__informacion">
                             <p class="producto__nombre">WordPress</p>
                             <p class="producto__precio">$25</p>
+                            <a href="#" class="u-full-width button-primary button input agregar-carrito" data-id="14">Agregar Al Carrito</a>
                         </div>
                 </div>
                 <div class="grafico grafico--camisas"></div>
                 <div class="grafico grafico--node"></div>
 
         
-        </div>
+            </div>
         </main>
         <footer>
             <p class="footer__texto">Front End Store- All rights reserved 2023</p>
