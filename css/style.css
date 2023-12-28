@@ -138,6 +138,15 @@ h3{
     padding: 1rem;
 
 }
+.producto__imagen {
+    
+    transition: opacity 0.3s ease;
+}
+
+.producto__imagen.loaded {
+    opacity: 1;
+}
+
 
 .producto__informacion{
 

@@ -1,6 +1,30 @@
 
 // carrito.js
 document.addEventListener('DOMContentLoaded', () => {
+   
+    
+        const lazyImages = document.querySelectorAll('.producto__imagen');
+    
+        const lazyLoad = target => {
+            const io = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        observer.unobserve(img);
+                    }
+                });
+            });
+    
+            io.observe(target);
+        };
+    
+        lazyImages.forEach(lazyLoad);
+    
+    
+
+
+
     const carrito = document.querySelector('#carrito');
     const contenedorCarrito = document.querySelector('#lista-carrito tbody');
     const vaciarCarritoBtn = document.querySelector('#vaciar-carrito');
