@@ -139,21 +139,10 @@ h3{
 
 }
 
-.producto__imagen {
-    
-    transition: opacity 0.3s ease;
-}
-
-.producto__imagen.loaded {
-    opacity: 1;
-}
-
-
 .producto__informacion{
 
 
 }
-
 .producto__imagen:hover{
     cursor: pointer;
 
